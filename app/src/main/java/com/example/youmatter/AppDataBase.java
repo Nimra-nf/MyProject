@@ -1,9 +1,12 @@
 package com.example.youmatter;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -17,10 +20,12 @@ public class AppDataBase extends SQLiteOpenHelper {
     public static final String COLUMN_ID = "Id";
     public static final String COLUMN_NAME = "Name";
     public static final String COLUMN_IMAGEID = "IMAGE";
-   /* public static final String COLUMN_MNUMBER = "Meter Number";
-    public static final String COLUMN_AMOUNT = "Pending Amount";
-    public static final String COLUMN_LUNIT = "Last Unit";
-    public static final String COLUMN_CUNIT = "Current Unit"; */
+
+
+    public static final String TABLE_NAME2 = "Admin";
+    public static final String COLUMN_ID2 = "Id";
+    public static final String COLUMN_USER_NAME = "Username";
+    public static final String COLUMN_PASSWORD = "Password";
 
 
     public AppDataBase(@Nullable Context context) {
@@ -33,11 +38,33 @@ public class AppDataBase extends SQLiteOpenHelper {
                 + COLUMN_NAME + " TEXT, " +  COLUMN_IMAGEID + " TEXT);";
         db.execSQL(query);
 
+        String query2 = "CREATE TABLE " + TABLE_NAME2 + " (" + COLUMN_ID2 +  " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COLUMN_USER_NAME + " TEXT, " +  COLUMN_PASSWORD + " TEXT);";
+        db.execSQL(query2);
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+
+    public void insertUser(String name, String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_USER_NAME, name);
+        cv.put(COLUMN_PASSWORD, password);
+        db.insert(TABLE_NAME2, null, cv);
+    }
+
+    public Cursor CheckAdmin(String uname){
+        String query = "SELECT * FROM " + TABLE_NAME2 + " WHERE " + COLUMN_USER_NAME + " == '" + uname + "';";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null;
+        if(db!= null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
     }
 
     Cursor getData(){

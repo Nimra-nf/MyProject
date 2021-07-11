@@ -43,7 +43,7 @@ public class CustomAdapter extends ArrayAdapter {
         } else {
             VH = (ViewHolder) convertView.getTag();
         }
-        VH.myimage.setImageResource(image.get(position));
+        VH.myimage.setImageResource(Integer.parseInt(image.get(position)));
         VH.myname.setText(foodname.get(position));
 
         return convertView;

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mybackground"
+    android:orientation="vertical"
+    tools:context=".Admin">
+
+    <Button
+        android:id="@+id/NewFood"
+        android:layout_width="187dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@color/DarkGreen"
+        android:text="Add New Food" />
+
+    <Button
+        android:id="@+id/NewRecipe"
+        android:layout_width="187dp"
+        android:layout_height="60dp"
+        android:text="Add New Recipe"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:background="@color/DarkGreen"/>
+
+    <Button
+        android:id="@+id/NewExercise"
+        android:layout_width="187dp"
+        android:layout_height="60dp"
+        android:text="Add New Exercise"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:background="@color/DarkGreen"/>
+
+</LinearLayout>
