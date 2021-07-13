@@ -13,10 +13,22 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         />
+
     <TextView
         android:id="@+id/Information"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="10dp"
+        android:text="Your Food contains the following calories:"
+        android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/calorie"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:text="abc"
+        android:textSize="40dp"
         android:layout_marginTop="10dp"/>
 
 

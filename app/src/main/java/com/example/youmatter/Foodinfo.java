@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Foodinfo extends AppCompatActivity {
 
     ImageView photo;
-    TextView information;
+    TextView information, calories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,9 @@ public class Foodinfo extends AppCompatActivity {
 
         photo = (ImageView) findViewById(R.id.image);
         information = (TextView) findViewById(R.id.Information);
+        calories = (TextView) findViewById(R.id.calorie);
         Bundle bundle = getIntent().getExtras();
+
+
     }
 }

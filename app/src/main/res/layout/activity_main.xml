@@ -8,6 +8,15 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Welcome to You Matter!"
+        android:textSize="40dp"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/DarkGreen"/>
+
     <Button
         android:id="@+id/Food"
         android:layout_width="150dp"
@@ -30,9 +39,9 @@
         android:id="@+id/Exercises"
         android:layout_width="150dp"
         android:layout_height="60dp"
-        android:text="Exercises"
-        android:layout_marginTop="50dp"
         android:layout_gravity="center"
-        android:background="@color/DarkGreen"/>
+        android:layout_marginTop="50dp"
+        android:background="@color/DarkGreen"
+        android:text="Exercises" />
 
 </LinearLayout>

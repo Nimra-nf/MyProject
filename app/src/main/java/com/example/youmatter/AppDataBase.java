@@ -20,6 +20,7 @@ public class AppDataBase extends SQLiteOpenHelper {
     public static final String COLUMN_ID = "Id";
     public static final String COLUMN_NAME = "Name";
     public static final String COLUMN_IMAGEID = "IMAGE";
+    public static final String COLUMN_CALORIES = "Calories";
 
 
     public static final String TABLE_NAME2 = "Admin";
@@ -35,7 +36,7 @@ public class AppDataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME + " (" + COLUMN_ID +  " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + COLUMN_NAME + " TEXT, " +  COLUMN_IMAGEID + " TEXT);";
+                + COLUMN_NAME + " TEXT, " +  COLUMN_IMAGEID + " TEXT, " + COLUMN_CALORIES + " TEXT);";
         db.execSQL(query);
 
         String query2 = "CREATE TABLE " + TABLE_NAME2 + " (" + COLUMN_ID2 +  " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -76,5 +77,21 @@ public class AppDataBase extends SQLiteOpenHelper {
             cursor = db.rawQuery(query, null);
         }
         return cursor;
+    }
+
+    public void insertfood(String name, String imageid, int cal){
+        SQLiteDatabase mydb = this.getWritableDatabase();
+        ContentValues cn = new ContentValues();
+        cn.put(COLUMN_NAME, name);
+        cn.put(COLUMN_IMAGEID, imageid);
+        cn.put(COLUMN_CALORIES, cal);
+        long result = mydb.insert(TABLE_NAME,null, cn);
+        if(result == -1){
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context, "Successfully Added", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }
